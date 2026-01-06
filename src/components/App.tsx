@@ -174,7 +174,7 @@ export default function App() {
                         <div
                             className='flex flex-col w-full h-full items-center justify-center text-center cursor-pointer'
                         >
-                            <img src={GithubImg} alt='Github Pixelated Image Icon' width={34} height={34}/>
+                            <img src={GithubImg} alt='Github Pixelated Image Icon' width={34} height={34} draggable='false'/>
                             <p className='App-shortcut-text-spacing'> Github </p>
                         </div>
                     </div>
@@ -191,7 +191,7 @@ export default function App() {
                         <div
                             className='flex flex-col w-full h-full items-center justify-center text-center cursor-pointer'
                         >
-                            <img src={LinkedInImg} alt='Github Pixelated Image Icon' width={34} height={34}/>
+                            <img src={LinkedInImg} alt='Github Pixelated Image Icon' width={34} height={34} draggable='false'/>
                             <p className='App-shortcut-text-spacing'> LinkedIn </p>
                         </div>
                     </div>
