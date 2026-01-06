@@ -18,11 +18,22 @@ import './app.css';
 import WelcomeWindow from './welcomeWindow/welcomeWindow';
 
 export default function App() {
+    {/* States */}
     const [activeWindow, setActiveWindow] = useState<boolean>(true);
     const [crtFilter, setCrtFilter] = useState<'crt' | ''>('crt');
     const [crtFilterToggleState, setCrtFilterToggleState] = useState<boolean>(true);
 
-    const nodeRef = useRef(null);
+    {/* REFS FOR EACH DRAGGABLE ITEM */}
+    const welcomeWindowRef = useRef(null);
+    {/* ADD REST OF WINDOWS HERE */}
+    const welcomeIconRef = useRef(null);
+    const educationIconRef = useRef(null);
+    const experienceIconRef = useRef(null);
+    const schoolProjIconRef = useRef(null);
+    const hobbyProjIconRef = useRef(null);
+    const recycleIconRef = useRef(null);
+    const githubIconRef = useRef(null);
+    const linkedInIconRef = useRef(null);
 
     function onCrtToggleClick () {
         if (crtFilterToggleState) {
@@ -45,14 +56,14 @@ export default function App() {
                 className='App-dragZone-size'
             >
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={welcomeWindowRef}
                     bounds='parent'
                     defaultPosition={{x: 600, y: 100}}
                     handle='#Welcome-titlebar'
                 >
                     <div
-                        ref={nodeRef}
-                        className='absolute h-5 w-[500px] z-20'
+                        ref={welcomeWindowRef}
+                        className='absolute inline-block z-20'
                     >
                         <WelcomeWindow 
                             activeWindow={activeWindow}
@@ -61,12 +72,12 @@ export default function App() {
                 </Draggable>
 
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={welcomeIconRef}
                     bounds='parent'
                     defaultPosition={{x: 0, y: 0}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={welcomeIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -78,12 +89,12 @@ export default function App() {
                     </div>
                 </Draggable>
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={experienceIconRef}
                     bounds='parent'
                     defaultPosition={{x: 0, y: 70}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={experienceIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -95,12 +106,12 @@ export default function App() {
                     </div>
                 </Draggable>
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={educationIconRef}
                     bounds='parent'
                     defaultPosition={{x: 0, y: 140}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={educationIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -112,12 +123,12 @@ export default function App() {
                     </div>
                 </Draggable>
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={schoolProjIconRef}
                     bounds='parent'
                     defaultPosition={{x: 0, y: 210}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={schoolProjIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -129,12 +140,12 @@ export default function App() {
                     </div>
                 </Draggable>
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={hobbyProjIconRef}
                     bounds='parent'
                     defaultPosition={{x: 0, y: 280}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={hobbyProjIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -146,12 +157,12 @@ export default function App() {
                     </div>
                 </Draggable>
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={recycleIconRef}
                     bounds='parent'
                     defaultPosition={{x: 0, y: 500}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={recycleIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -163,12 +174,12 @@ export default function App() {
                     </div>
                 </Draggable>
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={githubIconRef}
                     bounds='parent'
                     defaultPosition={{x: 80, y: 0}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={githubIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -180,12 +191,12 @@ export default function App() {
                     </div>
                 </Draggable>
                 <Draggable 
-                    nodeRef={nodeRef}
+                    nodeRef={linkedInIconRef}
                     bounds='parent'
                     defaultPosition={{x: 80, y: 70}}
                 >
                     <div 
-                        ref={nodeRef}
+                        ref={linkedInIconRef}
                         className='absolute h-20 w-20 z-10 m-1'
                     >
                         <div
@@ -199,12 +210,12 @@ export default function App() {
             </div>
 
             <Button
-                className='absolute top-2 right-2 z-10 font-extrabold text-[16px]'
+                className='absolute top-2 right-2 z-1 font-extrabold text-[16px] z-10'
                 onClick={() => {
                     onCrtToggleClick()
                 }}
             >
-                <span className='text-red-500'>R</span><span className='text-green-600'>G</span><span className='text-blue-600'>B</span>
+                <span className='text-red-500 font-bold'>R</span><span className='text-green-600 font-bold'>G</span><span className='text-blue-600'>B</span>
             </Button>
 
             <TaskBar
