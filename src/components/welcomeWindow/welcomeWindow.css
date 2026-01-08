@@ -1,0 +1,18 @@
+.WelcomeWindow-h1 {
+    text-shadow: none;
+    font-size: xx-large;
+}
+
+.WelcomeWindow-p {
+    text-shadow: none;
+    font-size: large;
+}
+
+.WelcomeWindow-page {
+    text-shadow: none;
+}
+
+span {
+    font-size: 18px;
+    font-family: monospace;
+}
