@@ -7,6 +7,8 @@ import { ReaderClosed, WindowsExplorer, Earth, Wordpad, Computer, RecycleEmpty, 
 
 import Draggable from 'react-draggable';
 
+import WelcomeWindow from './welcomeWindow/welcomeWindow';
+import ExperienceWindow from './experienceWindow/experienceWindow';
 import HeadShotImg from '../assets/nathen_headshot.jpg';
 import WindowsCloudsImg from '../assets/windows_clouds.jpg';
 import LinkedInImg from '../assets/linkedin_pixel_logo_icon.png';
@@ -17,19 +19,19 @@ import '@react95/core/GlobalStyle';
 import '@react95/core/themes/win95.css';
 import '@react95/icons/icons.css';
 import './app.css';
-import WelcomeWindow from './welcomeWindow/welcomeWindow';
 
 export default function App() {
     {/* States */}
     const [crtFilter, setCrtFilter] = useState<'crt' | ''>('crt');
-    const [crtFilterToggleState, setCrtFilterToggleState] = useState<boolean>(true);
+    const [crtFilterToggleState, setCrtFilterToggleState] = useState<boolean>(false);
 
     const [activeWindow, setActiveWindow] = useState<boolean>(true);
-    const [showWelcomeWindow, setShowWelcomeWindow]  = useState<boolean>(true);
+    const [showWelcomeWindow, setShowWelcomeWindow]  = useState<boolean>(false);
+    const [showExperienceWindow, setShowExperienceWindow]  = useState<boolean>(true);
 
     {/* REFS FOR EACH DRAGGABLE ITEM */}
     const welcomeWindowRef = useRef(null);
-    {/* ADD REST OF WINDOWS HERE */}
+    const experienceWindowRef = useRef(null);
     const welcomeIconRef = useRef(null);
     const educationIconRef = useRef(null);
     const experienceIconRef = useRef(null);
@@ -73,6 +75,23 @@ export default function App() {
                         <WelcomeWindow 
                             activeWindow={activeWindow}
                             showWindow={showWelcomeWindow}
+                            setShowWindow={setShowWelcomeWindow}
+                        />
+                    </div>
+                </Draggable>
+                <Draggable 
+                    nodeRef={experienceWindowRef}
+                    bounds='parent'
+                    defaultPosition={{x: 650, y: 150}}
+                    handle='#Experience-titlebar'
+                >
+                    <div
+                        ref={experienceWindowRef}
+                        className='absolute inline-block z-20'
+                    >
+                        <ExperienceWindow 
+                            activeWindow={activeWindow}
+                            showWindow={showExperienceWindow}
                             setShowWindow={setShowWelcomeWindow}
                         />
                     </div>
@@ -128,6 +147,9 @@ export default function App() {
                     >
                         <div
                             className='flex flex-col w-full h-full items-center justify-center text-center cursor-pointer'
+                            onDoubleClick={() => {
+                                setShowExperienceWindow(true)
+                            }}
                         >
                             <Computer variant="32x32_4"/>
                             <p className='App-shortcut-text-spacing'> Experience </p>

@@ -17,10 +17,6 @@ export default function WelcomeWindow (props: WelcomeWindowProps) {
 
     }
 
-    function switchPage () {
-
-    }
-
     if (props.showWindow) {
         return (
             <Frame
