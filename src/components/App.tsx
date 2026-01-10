@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { TaskBar, List, Button } from '@react95/core';
+import { TaskBar } from '@react95/core/TaskBar';
+import { Button } from '@react95/core/Button';
+import { List  } from '@react95/core/List';
 import { ReaderClosed, WindowsExplorer, Earth, Wordpad, Computer, RecycleEmpty, Mdisp321, Wintrust103 } from '@react95/icons';
 
 import Draggable from 'react-draggable';
@@ -241,7 +243,6 @@ export default function App() {
                     </List>
                 }
             >
-                
             </TaskBar>
         </div>
     );
