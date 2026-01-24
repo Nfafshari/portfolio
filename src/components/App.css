@@ -47,7 +47,6 @@
 }
 
 .crt {
-    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5), -1px -1px rgba(0, 255, 255, 0.4) !important;
     position: relative;
     &:before,
     &:after {
