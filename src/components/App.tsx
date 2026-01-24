@@ -13,7 +13,6 @@ import HeadShotImg from '../assets/nathen_headshot.jpg';
 import WindowsCloudsImg from '../assets/windows_clouds.jpg';
 import LinkedInImg from '../assets/linkedin_pixel_logo_icon.png';
 import GithubImg from '../assets/github_pixel_icon.png';
-import TopographyImg from '../assets/topography-micron.svg';
 
 import '@react95/core/GlobalStyle';
 import '@react95/core/themes/win95.css';
@@ -26,8 +25,8 @@ export default function App() {
     const [crtFilterToggleState, setCrtFilterToggleState] = useState<boolean>(false);
 
     const [activeWindow, setActiveWindow] = useState<boolean>(true);
-    const [showWelcomeWindow, setShowWelcomeWindow]  = useState<boolean>(false);
-    const [showExperienceWindow, setShowExperienceWindow]  = useState<boolean>(true);
+    const [showWelcomeWindow, setShowWelcomeWindow]  = useState<boolean>(true);
+    const [showExperienceWindow, setShowExperienceWindow]  = useState<boolean>(false);
 
     {/* REFS FOR EACH DRAGGABLE ITEM */}
     const welcomeWindowRef = useRef(null);
