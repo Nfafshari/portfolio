@@ -54,7 +54,7 @@ export default function WelcomeWindow (props: WelcomeWindowProps) {
                                     <br/> I am currently a <span className='WelcomeWindow-span font-bold'>Senior</span> at the <a href='https://und.edu/' target='_blank'><span className='WelcomeWindow-span text-green-700 underline'>University of North Dakota</span></a> with a Bachelor's Degree in Computer Science.
                                     <br/> I have a passion for software engineering; more specifically, software development, full-stack development, and UI design.
                                     <br/>
-                                    <br/> I currently work for <a href='https://www.ideal-aerosmith.com/' target='_blank'><span className='WelcomeWindow-span text-orange-500 underline'>Ideal Aerosmith</span></a> as a <span className='WelcomeWindow-span font-bold'>Software Engineer Intern</span>  where I have gained lots of career expierence!
+                                    <br/> I currently work for <a href='https://www.ideal-aerosmith.com/' target='_blank'><span className='WelcomeWindow-span text-orange-500 underline'>Ideal Aerosmith</span></a> as a <span className='WelcomeWindow-span font-bold'>Software Engineer Intern</span>  where I have gained meaningful career expierence!
                                 </p>
                             :
                                 <p className='WelcomeWindow-p font-mono'> 
@@ -67,7 +67,7 @@ export default function WelcomeWindow (props: WelcomeWindowProps) {
                                         <a href='https://www.typescriptlang.org/' target='_blank'> <span className='WelcomeWindow-span text-blue-700 underline'>TypeScript</span></a>. Additionally, I used 
                                         <a href='https://tailwindcss.com/' target='_blank'> <span className='WelcomeWindow-span text-sky-700 underline ml-1'>Tailwind.css</span></a> and 
                                         <a href='https://react95.github.io/React95/?path=/story/all--all' target='_blank'> <span className='WelcomeWindow-span text-pink-500 underline'>React95</span> </a>
-                                        for this nice <span className='font-bold ml-1'>Windows</span><span className='text-red-600 font-bold'>9</span><span className='text-blue-800 font-bold'>5</span> retro look!
+                                        for this nice <span className='font-bold text-lg'>Windows</span><span className='text-red-600 font-bold text-lg'>9</span><span className='text-blue-800 font-bold text-lg m-0'>5</span> retro look!
                                 </p>
                         }
                         <div className='flex absolute right-0 bottom-0'>

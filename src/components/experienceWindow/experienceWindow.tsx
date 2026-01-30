@@ -57,12 +57,12 @@ export default function ExperienceWindow (props: ExperienceWindowProps) {
                                 <h2 className='ExperienceWindow-h2 font-mono'> Software Engineer Intern <span className='ExperienceWindow-span text-gray-500 text-xs'>[06/02/2025 - present]</span></h2>
                                 <Fieldset legend='Skills' className='pl-2 pr-2 pb-2'>
                                     <div className='flex flex-col'>
-                                        <Checkbox checked> React </Checkbox>
-                                        <Checkbox checked> TypeScript/JavaScript </Checkbox>
-                                        <Checkbox checked> Node.js </Checkbox>
-                                        <Checkbox checked> Playwright testing </Checkbox>
-                                        <Checkbox checked> Git </Checkbox>
-                                        <Checkbox checked> Atlassian Products (Jira, Bitbucket, Sourcetree) </Checkbox>
+                                        <Checkbox checked readOnly> React </Checkbox>
+                                        <Checkbox checked readOnly> TypeScript/JavaScript </Checkbox>
+                                        <Checkbox checked readOnly> Node.js </Checkbox>
+                                        <Checkbox checked readOnly> Playwright testing </Checkbox>
+                                        <Checkbox checked readOnly> Git </Checkbox>
+                                        <Checkbox checked readOnly> Atlassian Products (Jira, Bitbucket, Sourcetree) </Checkbox>
                                     </div>
                                 </Fieldset>
                                 
@@ -76,9 +76,9 @@ export default function ExperienceWindow (props: ExperienceWindowProps) {
                                 <h2 className='ExperienceWindow-h2 font-mono'> InternGF <span className='ExperienceWindow-span text-gray-500 text-xs'>[05/29/2025 - 08/07/2025]</span></h2>
                                 <Fieldset legend='Activities' className='pl-2 pr-2 pb-2'>
                                     <div className='flex flex-col'>
-                                        <Checkbox checked>Volunteering</Checkbox>
-                                        <Checkbox checked>Networking</Checkbox>
-                                        <Checkbox checked>Tours</Checkbox>
+                                        <Checkbox checked readOnly>Volunteering</Checkbox>
+                                        <Checkbox checked readOnly>Networking</Checkbox>
+                                        <Checkbox checked readOnly>Tours</Checkbox>
                                     </div>
                                 </Fieldset>
                                 

@@ -9,6 +9,7 @@ import Draggable from 'react-draggable';
 
 import WelcomeWindow from './welcomeWindow/welcomeWindow';
 import ExperienceWindow from './experienceWindow/experienceWindow';
+import EducationWindow from './educationWindow/educationWindow';
 import HeadShotImg from '../assets/nathen_headshot.jpg';
 import WindowsCloudsImg from '../assets/windows_clouds.jpg';
 import LinkedInImg from '../assets/linkedin_pixel_logo_icon.png';
@@ -25,12 +26,14 @@ export default function App() {
     const [crtFilterToggleState, setCrtFilterToggleState] = useState<boolean>(false);
 
     const [activeWindow, setActiveWindow] = useState<boolean>(true);
-    const [showWelcomeWindow, setShowWelcomeWindow]  = useState<boolean>(true);
+    const [showWelcomeWindow, setShowWelcomeWindow]  = useState<boolean>(false);
     const [showExperienceWindow, setShowExperienceWindow]  = useState<boolean>(false);
+    const [showEducationWindow, setShowEducationWindow]  = useState<boolean>(true);
 
     {/* REFS FOR EACH DRAGGABLE ITEM */}
     const welcomeWindowRef = useRef(null);
     const experienceWindowRef = useRef(null);
+    const educationWindowRef = useRef(null);
     const welcomeIconRef = useRef(null);
     const educationIconRef = useRef(null);
     const experienceIconRef = useRef(null);
@@ -92,6 +95,23 @@ export default function App() {
                             activeWindow={activeWindow}
                             showWindow={showExperienceWindow}
                             setShowWindow={setShowExperienceWindow}
+                        />
+                    </div>
+                </Draggable>
+                <Draggable 
+                    nodeRef={educationWindowRef}
+                    bounds='parent'
+                    defaultPosition={{x: 650, y: 150}}
+                    handle='#Education-titlebar'
+                >
+                    <div
+                        ref={educationWindowRef}
+                        className='absolute inline-block z-20'
+                    >
+                        <EducationWindow 
+                            activeWindow={activeWindow}
+                            showWindow={showEducationWindow}
+                            setShowWindow={setShowEducationWindow}
                         />
                     </div>
                 </Draggable>

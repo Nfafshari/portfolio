@@ -1,20 +1,21 @@
-.ExperienceWindow-h1 {
+.EducationWindow-h1 {
     text-shadow: none;
     font-size: xx-large;
 }
 
-.ExperienceWindow-h2 {
+.EducationWindow-h2 {
     text-shadow: none;
     font-size: x-large;
+    font-family: sans-serif;
 }
 
-.ExperienceWindow-p {
+.EducationWindow-p {
     text-shadow: none;
-    font-size: large;
+    font-size: medium;
     font-family: monospace;
 }
 
-.ExperienceWindow-span {
+.EducationWindow-span {
     font-size: 18px;
     font-family: monospace;
 }
