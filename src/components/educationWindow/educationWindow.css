@@ -1,16 +1,13 @@
 .EducationWindow-h1 {
-    text-shadow: none;
     font-size: xx-large;
 }
 
 .EducationWindow-h2 {
-    text-shadow: none;
     font-size: x-large;
     font-family: sans-serif;
 }
 
 .EducationWindow-p {
-    text-shadow: none;
     font-size: medium;
     font-family: monospace;
 }
