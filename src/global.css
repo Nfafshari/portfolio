@@ -17,10 +17,6 @@ span {
     font-family: monospace;
 }
 
-.gradient {
-    background-image: radial-gradient(circle at center, #656565, #ffffff);
-}
-
 .taskBar-size {
     height: 40px !important;
     z-index: 20;
@@ -33,10 +29,16 @@ span {
     text-align: start !important;
 }
 
+.taskBar-size button:first-child div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 16px !important;
+    text-align: start !important;
+    padding-bottom: 5px !important;
+}
+
 .taskBar-size button div:last-child {
-    margin-bottom: 2px !important;
-    margin-right: 2px !important;
-    margin-top: 2px !important;
+    padding-top: 4px !important;
 }
 
 .taskBar-size div:last-child {
@@ -64,37 +66,3 @@ span {
     font-size: large;
     margin-bottom: 10px !important;
 }
-
-.crt {
-    position: relative;
-    &:before,
-    &:after {
-        content: "";
-        transform: translateZ(0) !important;
-        pointer-events: none !important;
-        mix-blend-mode: overlay !important;
-        position: absolute !important;
-        height: 100% !important;
-        width: 100% !important;
-        left: 0 !important;
-        top: 0 !important;
-        z-index: 1 !important;
-    }
-  
-    &:before {
-        background: repeating-linear-gradient(
-            var(--crt-red) 0px,
-            var(--crt-green) 2px,
-            var(--crt-blue) 4px
-        ) !important;
-    }
-    &:after {
-        background: repeating-linear-gradient(
-            90deg,
-            var(--crt-red) 1px,
-            var(--crt-green) 2px,
-            var(--crt-blue) 3px
-        ) !important;
-    }
-}
-  

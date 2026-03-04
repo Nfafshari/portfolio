@@ -12,11 +12,10 @@ import GithubImg from '../assets/github_pixel_icon.png';
 import '@react95/core/GlobalStyle';
 import '@react95/core/themes/win95.css';
 import '@react95/icons/icons.css';
+import EducationWindow from './educationWindow/educationWindow';
 
 export default function App() {
     {/* States */}
-    const [crtFilter, setCrtFilter] = useState<boolean>(false);
-
     const {
         add,
         remove,
@@ -25,131 +24,45 @@ export default function App() {
         focus
     } = useModal();
 
-    function onCrtToggleClick () {
-        setCrtFilter(prev => !prev)
-    }
-
     function removeModal (id: string) {
         remove(id);
         minimize(id);
         focus('');
     }
 
-    // set welcome window to show first and hide all others
-    useEffect(() => {
+    function addModal (id: string, title: string, icon: React.ReactElement) {
         add({
-            id: 'welcome-window',
-            title: 'Welcome!',
-            icon: <Earth />,
+            id: id,
+            title: title,
+            icon: icon,
             hasButton: true
         });
-        restore('welcome-window');
-        focus('welcome-window');
+        restore(id);
+        focus(id);
+    }
+
+    useEffect(() => {
+        // set welcome window to show first
+        addModal('welcome-window', 'Welcome!', <Earth />);
+    }, [])
+
+    useEffect(() => {
+        // hide all other modals
+        removeModal('experience-window');
+        removeModal('education-window');
     }, [])
 
     return (
         <div 
             id='Background' 
-            className={`${crtFilter ? 'crt' : ''} relative w-screen h-screen bg-cover bg-center bg-no-repeat overflow-hidden z-0`}
+            className={`relative w-screen h-screen bg-cover bg-center bg-no-repeat overflow-hidden z-0`}
             style={{ backgroundImage: `url(${WindowsCloudsImg})` }}
         >
+            {/********************** SHORTCUT ICONS ************************/}
             <div 
                 id='Drag-zone'
-                className='dragZone-size'
+                className='dragZone-size z-0'
             >
-                {/********************** WINDOWS ************************/}
-                <Modal
-                    id='welcome-window'
-                    icon={ <Earth /> }
-                    title='Welcome!'
-                    dragOptions={{
-                        defaultPosition: { x: 600, y: 100 }
-                    }}
-                    titleBarOptions={[
-                        <Modal.Minimize key='minimize' 
-                            onClick={() => {
-                                minimize('welcome-window');
-                            }}
-                        />,
-                        <TitleBar.Close key='close' 
-                            onClick={() => {
-                                removeModal('welcome-window')
-                            }}
-                        />
-                    ]}
-                >
-                    <Modal.Content w="550px" h="500px" boxShadow="$in" className="!p-0">
-                        <WelcomeWindow />
-                    </Modal.Content>
-                </Modal>
-                <Modal
-                    id='experience-window'
-                    icon={ <Computer /> }
-                    title='Experience'
-                    dragOptions={{
-                        defaultPosition: { x: 650, y: 150 }
-                    }}
-                    titleBarOptions={[
-                        <Modal.Minimize key='minimize' 
-                            onClick={() => {
-                                minimize('experience-window');
-                            }}
-                        />,
-                        <TitleBar.Close key='close' 
-                            onClick={() => {
-                                removeModal('experience-window')
-                            }}
-                        />
-                    ]}
-                >
-                    <Modal.Content w="700px" h="500px" boxShadow="$in" className="!p-0">
-                        <ExperienceWindow />
-                    </Modal.Content>
-                </Modal>
-
-                {/* <DraggableWindow 
-                    defaultPosition={{x: 600, y: 100}}
-                    handleId='#Welcome-titlebar'
-                >
-                    <WelcomeWindow 
-                        activeWindow={activeWindow}
-                        showWindow={showWelcomeWindow}
-                        setShowWindow={setShowWelcomeWindow}
-                    />
-                </DraggableWindow>
-                <DraggableWindow
-                    defaultPosition={{x: 650, y: 150}}
-                    handleId='#Experience-titlebar'
-                >
-                    <ExperienceWindow 
-                        activeWindow={activeWindow}
-                        showWindow={showExperienceWindow}
-                        setShowWindow={setShowExperienceWindow}
-                    />
-                </DraggableWindow>
-                <DraggableWindow
-                    defaultPosition={{x: 650, y: 150}}
-                    handleId='#Education-titlebar'
-                >
-                    <EducationWindow 
-                        activeWindow={activeWindow}
-                        showWindow={showEducationWindow}
-                        setShowWindow={setShowEducationWindow}
-                    />
-                </DraggableWindow>
-                <DraggableWindow
-                    defaultPosition={{x: 650, y: 150}}
-                    handleId='#Projects-titlebar'
-                >
-                    <ProjectsWindow 
-                        activeWindow={activeWindow}
-                        showWindow={showProjectsWindow}
-                        setShowWindow={setShowProjectsWindow}
-                    />
-                </DraggableWindow> */}
-
-
-                {/********************** SHORTCUT ICONS ************************/}
                 <Shortcut 
                     icon={
                         <RecycleEmpty/>
@@ -170,17 +83,10 @@ export default function App() {
                         y: 0
                     }}
                     onDoubleClick={() => {
-                        add({
-                            id: 'welcome-window',
-                            title: 'Welcome!',
-                            icon: <Earth />,
-                            hasButton: true
-                        });
-                        restore('welcome-window');
-                        focus('welcome-window');
+                        addModal('welcome-window', 'Welcome!', <Earth />);
                     }}
                 />
-                <Shortcut 
+                <Shortcut
                     icon={
                         <Computer/>
                     }
@@ -188,6 +94,9 @@ export default function App() {
                     defaultPosition={{ 
                         x: 0, 
                         y: 70
+                    }}
+                    onDoubleClick={() => {
+                        addModal('experience-window', 'Experience', <Computer />);
                     }}
                 />
                 <Shortcut
@@ -198,6 +107,9 @@ export default function App() {
                     defaultPosition={{
                         x: 0,
                         y: 140
+                    }}
+                    onDoubleClick={() => {
+                        addModal('education-window', 'Education', <Mdisp321 />);
                     }}
                 />
                 <Shortcut
@@ -234,14 +146,80 @@ export default function App() {
                 />
             </div>
 
-            <Button
-                className='absolute top-2 right-2 z-1 font-extrabold text-[16px] z-10'
-                onClick={() => {
-                    onCrtToggleClick()
+            {/********************** WINDOWS ************************/}
+            <Modal
+                id='welcome-window'
+                icon={ <Earth /> }
+                title='Welcome!'
+                dragOptions={{
+                    defaultPosition: { x: 600, y: 100 }
                 }}
+                titleBarOptions={[
+                    <Modal.Minimize key='minimize' 
+                        onClick={() => {
+                            minimize('welcome-window');
+                        }}
+                    />,
+                    <TitleBar.Close key='close' 
+                        onClick={() => {
+                            removeModal('welcome-window')
+                        }}
+                    />
+                ]}
             >
-                <span className='text-red-500 text-xl font-sans font-bold'>R</span><span className='text-green-600 text-xl font-sans font-bold'>G</span><span className='text-blue-600 text-xl font-sans font-bold'>B</span>
-            </Button>
+                <Modal.Content w="550px" h="500px" boxShadow="$in" className="!p-0">
+                    <WelcomeWindow />
+                </Modal.Content>
+            </Modal>
+            <Modal
+                id='experience-window'
+                icon={ <Computer /> }
+                title='Experience'
+                dragOptions={{
+                    defaultPosition: { x: 650, y: 150 }
+                }}
+                titleBarOptions={[
+                    <Modal.Minimize key='minimize' 
+                        onClick={() => {
+                            minimize('experience-window');
+                        }}
+                    />,
+                    <TitleBar.Close key='close' 
+                        onClick={() => {
+                            removeModal('experience-window')
+                        }}
+                    />
+                ]}
+            >
+                <Modal.Content w="700px" h="500px" boxShadow="$in" className="!p-0">
+                    <ExperienceWindow />
+                </Modal.Content>
+            </Modal>
+            <Modal
+                id='education-window'
+                icon={ <Mdisp321 /> }
+                title='Education'
+                dragOptions={{
+                    defaultPosition: { x: 140, y: 0 }
+                }}
+                titleBarOptions={[
+                    <Modal.Minimize key='minimize' 
+                        onClick={() => {
+                            minimize('education-window');
+                        }}
+                    />,
+                    <TitleBar.Close key='close' 
+                        onClick={() => {
+                            removeModal('education-window')
+                        }}
+                    />
+                ]}
+                
+            >
+                <Modal.Content w="500px" h="300px" boxShadow="$in" className="!p-0">
+                    <EducationWindow />
+                </Modal.Content>
+            </Modal>
 
             <TaskBar
                 className='taskBar-size'

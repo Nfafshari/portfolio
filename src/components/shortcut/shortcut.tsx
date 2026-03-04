@@ -30,7 +30,7 @@ export default function Shortcut ({
         >
             <div 
                 ref={shortcutRef}
-                className={`absolute h-20 w-20 m-1 ${isDragging ? 'z-50' : 'z-10'}`}
+                className={`absolute h-20 w-20 m-1 ${isDragging ? 'z-50' : ''}`}
                 onDoubleClick={onDoubleClick}
             >
                 <div
