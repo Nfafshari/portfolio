@@ -1,49 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --crt-red: rgb(218, 49, 49);
     --crt-green: rgb(112, 159, 115);
     --crt-blue: rgb(40, 129, 206);
 }
 
+span {
+    font-size: 18px;
+    font-family: monospace;
+}
+
 .gradient {
     background-image: radial-gradient(circle at center, #656565, #ffffff);
 }
 
-.App-taskBar-size {
+.taskBar-size {
     height: 40px !important;
     z-index: 20;
 }
 
-.App-taskBar-size button {
-    width: 80px !important;
+.taskBar-size button {
+    display: flex !important;
+    align-items: center !important;
     font-size: 16px !important;
     text-align: start !important;
-    justify-content: center !important;
 }
 
-.App-taskBar-size button div {
+.taskBar-size button div:last-child {
     margin-bottom: 2px !important;
     margin-right: 2px !important;
+    margin-top: 2px !important;
 }
 
-.App-taskBar-size div:last-child {
+.taskBar-size div:last-child {
     font-size: large;
     text-align: center;
     margin-right: 2px; 
 }
 
-.App-taskBar-size div:last-child div {
+.taskBar-size div:last-child div {
     margin-right: 0px;
     margin-top: 3px;
 }
 
-.App-dragZone-size {
+.dragZone-size {
     width: 100%; 
     height: 95.5%; 
     margin-bottom: 40px;
-}
-
-.App-shortcut-text-spacing {
-    margin-top: 4px !important;
 }
 
 .crt {
