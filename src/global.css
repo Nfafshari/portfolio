@@ -8,6 +8,10 @@
     --crt-blue: rgb(40, 129, 206);
 }
 
+h1 {
+    font-size: xx-large;
+}
+
 span {
     font-size: 18px;
     font-family: monospace;
@@ -50,6 +54,15 @@ span {
     width: 100%; 
     height: 95.5%; 
     margin-bottom: 40px;
+}
+
+.checkbox {
+    line-height: 1 !important;
+}
+
+.checkbox span {
+    font-size: large;
+    margin-bottom: 10px !important;
 }
 
 .crt {

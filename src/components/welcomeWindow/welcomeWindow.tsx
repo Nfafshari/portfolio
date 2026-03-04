@@ -7,7 +7,7 @@ export default function WelcomeWindow () {
 
     return (
         <>
-            <h1 className='text-3xl ml-4 mt-2 font-mono'> Welcome to my Portfolio! </h1>
+            <h1 className='ml-4 mt-2 font-mono'> Welcome to my Portfolio! </h1>
             <div className='w-[100%] h-[100%]'>
                 <Frame w='95%' h='95%' bgColor='white' boxShadow='$in' style={{ position: 'relative', margin: 'auto', padding: '10px' }}>
                     {

@@ -4,6 +4,7 @@ import { ReaderClosed, WindowsExplorer, Earth, Computer, RecycleEmpty, Mdisp321,
 
 import Shortcut from './shortcut/shortcut';
 import WelcomeWindow from './welcomeWindow/welcomeWindow';
+import ExperienceWindow from './experienceWindow/experienceWindow';
 import WindowsCloudsImg from '../assets/windows_clouds.jpg';
 import LinkedInImg from '../assets/linkedin_pixel_logo_icon.png';
 import GithubImg from '../assets/github_pixel_icon.png';
@@ -34,7 +35,7 @@ export default function App() {
         focus('');
     }
 
-    // set welcome window to show first
+    // set welcome window to show first and hide all others
     useEffect(() => {
         add({
             id: 'welcome-window',
@@ -57,7 +58,6 @@ export default function App() {
                 className='dragZone-size'
             >
                 {/********************** WINDOWS ************************/}
-
                 <Modal
                     id='welcome-window'
                     icon={ <Earth /> }
@@ -78,8 +78,32 @@ export default function App() {
                         />
                     ]}
                 >
-                    <Modal.Content w="550px" h="500px" boxShadow="$in" p='0px'>
+                    <Modal.Content w="550px" h="500px" boxShadow="$in" className="!p-0">
                         <WelcomeWindow />
+                    </Modal.Content>
+                </Modal>
+                <Modal
+                    id='experience-window'
+                    icon={ <Computer /> }
+                    title='Experience'
+                    dragOptions={{
+                        defaultPosition: { x: 650, y: 150 }
+                    }}
+                    titleBarOptions={[
+                        <Modal.Minimize key='minimize' 
+                            onClick={() => {
+                                minimize('experience-window');
+                            }}
+                        />,
+                        <TitleBar.Close key='close' 
+                            onClick={() => {
+                                removeModal('experience-window')
+                            }}
+                        />
+                    ]}
+                >
+                    <Modal.Content w="700px" h="500px" boxShadow="$in" className="!p-0">
+                        <ExperienceWindow />
                     </Modal.Content>
                 </Modal>
 
