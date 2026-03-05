@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
-import { TaskBar, Button, List, useModal, Modal, TitleBar } from '@react95/core';
+import { useEffect } from 'react';
+import { TaskBar, List, useModal, Modal, TitleBar } from '@react95/core';
 import { ReaderClosed, WindowsExplorer, Earth, Computer, RecycleEmpty, Mdisp321, Wintrust103 } from '@react95/icons';
 
 import Shortcut from './shortcut/shortcut';
 import WelcomeWindow from './welcomeWindow/welcomeWindow';
 import ExperienceWindow from './experienceWindow/experienceWindow';
+import EducationWindow from './educationWindow/educationWindow';
+import ProjectsWindow from './projectsWindow/projectsWindow';
 import WindowsCloudsImg from '../assets/windows_clouds.jpg';
 import LinkedInImg from '../assets/linkedin_pixel_logo_icon.png';
 import GithubImg from '../assets/github_pixel_icon.png';
@@ -12,7 +14,6 @@ import GithubImg from '../assets/github_pixel_icon.png';
 import '@react95/core/GlobalStyle';
 import '@react95/core/themes/win95.css';
 import '@react95/icons/icons.css';
-import EducationWindow from './educationWindow/educationWindow';
 
 export default function App() {
     {/* States */}
@@ -50,6 +51,7 @@ export default function App() {
         // hide all other modals
         removeModal('experience-window');
         removeModal('education-window');
+        removeModal('projects-window');
     }, [])
 
     return (
@@ -109,7 +111,7 @@ export default function App() {
                         y: 140
                     }}
                     onDoubleClick={() => {
-                        addModal('education-window', 'Education', <Mdisp321 />);
+                        addModal('education-window', 'Education', <Wintrust103 />);
                     }}
                 />
                 <Shortcut
@@ -120,6 +122,9 @@ export default function App() {
                     defaultPosition={{
                         x: 0,
                         y: 210
+                    }}
+                    onDoubleClick={() => {
+                        addModal('projects-window', 'Projects', <Mdisp321 />);
                     }}
                 />
                 <Shortcut
@@ -132,6 +137,9 @@ export default function App() {
                         y: 0
                     }}
                     externalLink={true}
+                    onDoubleClick={() => {
+                        window.open('https://github.com/Nfafshari', '_blank', 'noopener noreferrer');
+                    }}
                 />
                 <Shortcut
                     icon={
@@ -143,6 +151,9 @@ export default function App() {
                         y: 70
                     }}
                     externalLink={true}
+                    onDoubleClick={() => {
+                        window.open('https://www.linkedin.com/in/nathen-afshari', '_blank', 'noopener noreferrer');
+                    }}
                 />
             </div>
 
@@ -197,7 +208,7 @@ export default function App() {
             </Modal>
             <Modal
                 id='education-window'
-                icon={ <Mdisp321 /> }
+                icon={ <Wintrust103 /> }
                 title='Education'
                 dragOptions={{
                     defaultPosition: { x: 140, y: 0 }
@@ -218,6 +229,31 @@ export default function App() {
             >
                 <Modal.Content w="500px" h="300px" boxShadow="$in" className="!p-0">
                     <EducationWindow />
+                </Modal.Content>
+            </Modal>
+            <Modal
+                id='projects-window'
+                icon={ <Mdisp321 /> }
+                title='Projects'
+                dragOptions={{
+                    defaultPosition: { x: 550, y: 100 }
+                }}
+                titleBarOptions={[
+                    <Modal.Minimize key='minimize' 
+                        onClick={() => {
+                            minimize('projects-window');
+                        }}
+                    />,
+                    <TitleBar.Close key='close' 
+                        onClick={() => {
+                            removeModal('projects-window')
+                        }}
+                    />
+                ]}
+                
+            >
+                <Modal.Content w="600px" h="500px" boxShadow="$in" className="!p-0">
+                    <ProjectsWindow />
                 </Modal.Content>
             </Modal>
 
