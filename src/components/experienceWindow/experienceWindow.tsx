@@ -9,15 +9,15 @@ export default function ExperienceWindow () {
         <Tabs defaultActiveTab='Ideal Aerosmith'>
             <Tab title='Ideal Aerosmith' className='font-mono'>
                 <div className='pl-2'>
-                    <h1 className='font-mono'> Ideal Aerosmith </h1>
+                    <h1 className='font-mono'> Ideal Aerosmith, Grand Forks, ND </h1>
                     <hr className='w-[95%]'/>
                     {(panelState === 'Overview') &&
-                        <Frame h='382px' w='78%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll max-h-[80%]'>
-                            <h2 className='text-lg font-mono'> Software Engineer Intern <span className='text-gray-500 text-xs'>[06/02/2025 - present]</span></h2>
+                        <Frame h='382px' w='78%' bgColor='white' boxShadow='$in' className='mt-5 p-2 overflow-y-scroll max-h-[80%]'>
+                            <h2 className='text-lg font-mono'> Software Engineer Intern <span className='text-gray-500 text-xs'>[June 2025 - present]</span></h2>
                             <Fieldset legend='Skills' className='pl-2 pr-2 pb-2'>
                                 <div className='flex flex-col'>
                                     <Checkbox checked readOnly className='checkbox'> React </Checkbox>
-                                    <Checkbox checked readOnly className='checkbox'> TypeScript/JavaScript </Checkbox>
+                                    <Checkbox checked readOnly className='checkbox'> TypeScript </Checkbox>
                                     <Checkbox checked readOnly className='checkbox'> Node.js </Checkbox>
                                     <Checkbox checked readOnly className='checkbox'> Playwright Automated Testing </Checkbox>
                                     <Checkbox checked readOnly className='checkbox'> Git </Checkbox>
@@ -25,13 +25,15 @@ export default function ExperienceWindow () {
                                 </div>
                             </Fieldset>
                             
-                            <p className='font-mono text-lg mt-2'>This internship has been one of the most beneficial steps in my career. I was introduced to software design principles, agile methodologies, version control (of large code bases), and team work with other engineers. I am treated just like any other engineer and constantly learn new concepts.</p>
-                            <p className='font-mono text-lg mt-2'>I mostly have been working on desktop applications using the above programming languages as well as Electron/Electron forge and webpack.</p>
-                            <p className='font-mono text-lg mt-2'>Along with these applications I have learned how to integrate component libraries as well like MaterialUI and Bootstrap to create consistent interfaces.</p>
+                            <p className='font-mono text-lg mt-2'>Contribute to the development of desktop applications for multi-axis motion control systems, working with cutting-edge technologies in the motion control industry.</p>
+                            <p className='font-mono text-lg mt-2'>Collaborate in Agile sprints with cross-functional engineering teams, participating in daily standups, sprint planning, and retrospectives to deliver quality software on schedule.</p>
+                            <p className='font-mono text-lg mt-2'>Work within large TypeScript/Node.js codebases using Git-based version control, managing branching strategies and maintaining code quality through proper documentation and commit practices.</p>
+                            <p className='font-mono text-lg mt-2'>Build UI components using React for Electron applications, creating responsive and user-friendly interfaces for desktop environments.</p>
+                            <p className='font-mono text-lg mt-2'>Participate in code reviews and software lifecycle processes, receiving constructive feedback and contributing to team knowledge sharing and continuous improvement.</p>
                         </Frame>
                     }
                     {(panelState === 'InternGF') &&
-                        <Frame h='382px' w='78%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
+                        <Frame h='382px' w='78%' bgColor='white' boxShadow='$in' className='mt-5 p-2 overflow-y-scroll'>
                             <h2 className='text-lg font-mono'> InternGF <span className='ExperienceWindow-span text-gray-500 text-xs'>[05/29/2025 - 08/07/2025]</span></h2>
                             <Fieldset legend='Activities' className='pl-2 pr-2 pb-2'>
                                 <div className='flex flex-col'>
@@ -77,6 +79,27 @@ export default function ExperienceWindow () {
                         </div>
                     </div>
                 </div>
+            </Tab>
+            <Tab title='CRC' className='font-mono'>
+                <h1 className='font-mono ml-2'> Computational Research Center - UND </h1>
+                <hr style={{ width: '95%', marginLeft: '10px'}}/>
+                <Frame h='382px' w='95%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
+                    <h2 className='text-lg font-mono'> Software Engineer <span className='text-gray-500 text-xs'>[February 2026 - present]</span></h2>
+                    <Fieldset legend='Skills' className='pl-2 pr-2 pb-2'>
+                        <div className='flex flex-col'>
+                            <Checkbox checked readOnly className='checkbox'> Next.js </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Authentication & Authorization </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> TypeScript </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> API Integration </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> User Experience Design </Checkbox>
+                        </div>
+                    </Fieldset>
+                    <p className='text-xs text-gray-400'> * Note: UND = University of North Dakota </p>
+
+                    <p className='font-mono text-lg mt-2'>Develop and maintain frontend features for the UND Arctic Labs research platform, creating intuitive interfaces that enable university researchers to effectively utilize computational tools and resources.</p>
+                    <p className='font-mono text-lg mt-2'>Implement robust authentication and authorization systems to secure user access and protect sensitive research data, ensuring compliance with university security standards.</p>
+                    <p className='font-mono text-lg mt-2'>Integrate RESTful and GraphQL APIs with React-based frontend services, building responsive user interfaces that provide seamless data visualization and interaction.</p>
+                </Frame>
             </Tab>
         </Tabs>
     );

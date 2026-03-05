@@ -8,7 +8,7 @@ export default function ProjectsWindow () {
     
     return (
         <Tabs defaultActiveTab='Senior Project'>
-            <Tab title='Senior Project'>
+            <Tab title='Senior Project' className='font-mono'>
                 <h1 className='font-mono ml-2'> Ground Speed Test Stand </h1>
                 <hr style={{ width: '95%', marginLeft: '10px'}}/>
                 <Frame h='382px' w='95%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
@@ -30,7 +30,7 @@ export default function ProjectsWindow () {
                 </Frame>
             </Tab>
 
-            <Tab title='Bookstore'>
+            <Tab title='Bookstore' className='font-mono'>
                 <h1 className='font-mono ml-2'> Bookstore E-Commerce Website </h1>
                 <hr style={{ width: '95%', marginLeft: '10px'}}/>
                 <Frame h='382px' w='95%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
@@ -49,7 +49,7 @@ export default function ProjectsWindow () {
                 </Frame>
             </Tab>
 
-            <Tab title='Unity'>
+            <Tab title='Unity' className='font-mono'>
                 <h1 className='ProjectsWindow-h1 font-mono ml-2'> Game Development </h1>
                 <hr style={{ width: '95%', marginLeft: '10px'}}/>
                 <Frame h='382px' w='95%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
