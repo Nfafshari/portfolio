@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { TaskBar, List, useModal, Modal, TitleBar } from '@react95/core';
 import { ReaderClosed, WindowsExplorer, Earth, Computer, RecycleEmpty, Mdisp321, Wintrust103 } from '@react95/icons';
+import { useClippy } from '@react95/clippy';
 
 import Shortcut from './shortcut/shortcut';
 import WelcomeWindow from './welcomeWindow/welcomeWindow';
@@ -25,6 +26,8 @@ export default function App() {
         focus
     } = useModal();
 
+    const { clippy } = useClippy();
+
     function removeModal (id: string) {
         remove(id);
         minimize(id);
@@ -42,6 +45,11 @@ export default function App() {
         focus(id);
     }
 
+    function clippyHelp () {
+        clippy?.speak("Double click the icons to open them, or click and hold to drag them around! Don't forget to check out the taskbar too!", true);
+        clippy?.animate();
+    }
+
     useEffect(() => {
         // set welcome window to show first
         addModal('welcome-window', 'Welcome!', <Earth />);
@@ -53,7 +61,7 @@ export default function App() {
         removeModal('education-window');
         removeModal('projects-window');
     }, [])
-
+    
     return (
         <div 
             id='Background' 
@@ -64,6 +72,9 @@ export default function App() {
             <div 
                 id='Drag-zone'
                 className='dragZone-size z-0'
+                onMouseMove={() => {
+                    clippyHelp();
+                }}
             >
                 <Shortcut 
                     icon={
