@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --crt-red: rgb(218, 49, 49);
+    --crt-green: rgb(112, 159, 115);
+    --crt-blue: rgb(40, 129, 206);
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+span {
+    font-size: 18px;
+    font-family: monospace;
+}
+
+.taskBar-size {
+    height: 40px !important;
+    z-index: 20;
+}
+
+.taskBar-size button {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 16px !important;
+    text-align: start !important;
+}
+
+.taskBar-size button:first-child div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 16px !important;
+    text-align: start !important;
+    padding-bottom: 5px !important;
+}
+
+.taskBar-size button div:last-child {
+    padding-top: 4px !important;
+}
+
+.taskBar-size div:last-child {
+    font-size: large;
+    text-align: center;
+    margin-right: 2px; 
+}
+
+.taskBar-size div:last-child div {
+    margin-right: 0px;
+    margin-top: 3px;
+}
+
+.dragZone-size {
+    width: 100%; 
+    height: 95.5%; 
+    margin-bottom: 40px;
+}
+
+.checkbox {
+    line-height: 1 !important;
+}
+
+.checkbox span {
+    font-size: large;
+    margin-bottom: 10px !important;
+}
