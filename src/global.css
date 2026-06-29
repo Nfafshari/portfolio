@@ -59,10 +59,49 @@ span {
 }
 
 .checkbox {
-    line-height: 1 !important;
+    /* react95 locks the checkbox label to a fixed 15px height. With our larger
+       font a wrapped (multi-line) label overflows that box and overlaps the next
+       item, so let the label grow to fit its content instead. */
+    height: auto !important;
+    line-height: 1.3 !important;
 }
 
 .checkbox span {
     font-size: large;
     margin-bottom: 10px !important;
+}
+
+/* Make tabbed windows (Experience, Projects) fill the full window height.
+   react95's Tabs renders a tab strip <ol> plus a content <div> that otherwise
+   only take their natural height, leaving dead space below the panel. We turn
+   the modal into a flex column so the content panel — and the scrollable Frame
+   inside the active tab — stretch to fill whatever height the window has. */
+.modal-fill {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.modal-fill > ol {
+    flex-shrink: 0;
+}
+
+.modal-fill > div {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-fill > div > :last-child {
+    flex: 1 1 auto;
+    height: auto !important;
+    min-height: 0;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+    /* Keep window content from spilling past the screen edges. */
+    h1 {
+        font-size: x-large;
+    }
 }

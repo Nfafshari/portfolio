@@ -1,26 +1,29 @@
 import { Frame } from '@react95/core/Frame';
+import diplomaImg from '../../assets/diploma.png';
 
 export default function EducationWindow () {
     return (
-        <>
-            <div className='h-[200px] w-[100%] flex justify-center items-center'>
-                <Frame
-                    className='bg-amber-100 text-center flex flex-col align-middle justify-center'
-                    h='175px' 
-                    w='325px' 
-                    boxShadow={'$in'}
-                    padding='2px'
-                >
-                    <h2 className='text-xl'>BACHELOR'S DEGREE IN PROGRESS...</h2>
-                    <p className='mt-2 font-bold'> Graduation date: May 16th, 2026</p>
-                </Frame>
+        <div className='p-2 overflow-y-auto h-full'>
+            <div className='text-center'>
+                <h2 className='text-lg font-bold font-mono'>Bachelor of Science in Computer Science</h2>
+                <p className='font-mono text-sm'>University of North Dakota &mdash; <span className='font-bold'>Magna Cum Laude</span></p>
+                <p className='font-mono text-sm'>Graduated May 16th, 2026</p>
             </div>
-            <hr/>
-            <div className='h-[80px] w-[100%] text-center mt-1'>
-                <p className='font-mono'><span className='font-bold text-sm'>GPA:</span> 3.75</p>
-                <p className='font-mono'><span className='font-bold text-sm'>Campus:</span> University of North Dakota</p>
-                <p className='font-mono'><span className='font-bold text-sm'>Awards:</span> Deans List (2022-2026), Academic Achievement Scholarship (2022-2026) </p>
+
+            <Frame boxShadow='$in' bgColor='white' className='mt-2 p-1 flex justify-center'>
+                <img
+                    src={diplomaImg}
+                    alt='University of North Dakota Bachelor of Science in Computer Science diploma'
+                    className='w-full h-auto max-w-[460px]'
+                />
+            </Frame>
+
+            <hr className='my-2'/>
+            <div className='text-center font-mono'>
+                <p><span className='font-bold text-sm'>GPA:</span> 3.76</p>
+                <p><span className='font-bold text-sm'>Campus:</span> University of North Dakota</p>
+                <p><span className='font-bold text-sm'>Awards:</span> Dean's List & Academic Achievement Scholarship (2022&ndash;2026)</p>
             </div>
-        </>
+        </div>
     );
 }

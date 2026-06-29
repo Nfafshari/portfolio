@@ -49,6 +49,53 @@ export default function ProjectsWindow () {
                 </Frame>
             </Tab>
 
+            <Tab title='Wedding' className='font-mono'>
+                <h1 className='font-mono ml-2'> Wedding Planner </h1>
+                <hr style={{ width: '95%', marginLeft: '10px'}}/>
+                <Frame h='382px' w='95%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
+                    <h2 className='font-mono'> Full-Stack Web App </h2>
+                    <Fieldset legend='Skills' className='pl-2 pr-2 pb-2'>
+                        <div className='flex flex-col'>
+                            <Checkbox checked readOnly className='checkbox'> Next.js (App Router) </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> TypeScript </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Prisma + PostgreSQL </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Tailwind + shadcn/ui </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Data Visualization (Recharts) </Checkbox>
+                        </div>
+                    </Fieldset>
+
+                    <p className='font-mono text-lg mt-2'> A full-stack wedding planning platform I designed and built for my fiancée and me. It turns the chaos of wedding planning into a single dashboard that tracks everything from guests to budget.</p>
+                    <p className='font-mono text-lg mt-2'> Core features include RSVP and guest-list management, a gift registry with claim tracking so gifts aren't double-purchased, a budget dashboard with interactive charts, and a categorized task checklist for staying on schedule.</p>
+                    <p className='font-mono text-lg mt-2'> Built with Next.js 16 and React 19 on the App Router, with a type-safe data layer using Prisma 7 and PostgreSQL. The UI is composed from Tailwind CSS and accessible shadcn/ui (Radix) components, with Recharts powering the budget visualizations behind a protected dashboard.</p>
+                    <p className='font-mono text-lg mt-2'>
+                        <a href='https://github.com/Nfafshari/afshari_wedding_site' target='_blank' rel='noopener noreferrer'>
+                            <span className='text-blue-700 underline'>View source on GitHub →</span>
+                        </a>
+                    </p>
+                </Frame>
+            </Tab>
+
+            <Tab title='Shmifty' className='font-mono'>
+                <h1 className='font-mono ml-2'> Shmifty Games </h1>
+                <hr style={{ width: '95%', marginLeft: '10px'}}/>
+                <Frame h='382px' w='95%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
+                    <h2 className='font-mono'> Mini-Game Platform <span className='text-gray-500 text-xs'>[in active development]</span></h2>
+                    <Fieldset legend='Skills' className='pl-2 pr-2 pb-2'>
+                        <div className='flex flex-col'>
+                            <Checkbox checked readOnly className='checkbox'> Next.js (App Router) </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> TypeScript </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Auth.js (OAuth + Credentials) </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Prisma + PostgreSQL </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Relational Schema Design </Checkbox>
+                        </div>
+                    </Fieldset>
+
+                    <p className='font-mono text-lg mt-2'> A mini-games web platform pairing retro arcade titles with modern browser games. Players log in, play, track their personal play history, and compete on global leaderboards.</p>
+                    <p className='font-mono text-lg mt-2'> On the backend I implemented authentication with Auth.js v5 (Google OAuth plus a credentials flow with bcrypt-hashed passwords) and a type-safe data layer with Prisma and PostgreSQL hosted on Supabase, hardened with Row-Level Security.</p>
+                    <p className='font-mono text-lg mt-2'> I designed the relational schema around a single rank-able score column plus a flexible JSONB stats field, so one set of tables powers leaderboards and history across every game without per-game tables. The interface leans into a retro Windows 95 aesthetic via the React95 component library.</p>
+                </Frame>
+            </Tab>
+
             <Tab title='Unity' className='font-mono'>
                 <h1 className='ProjectsWindow-h1 font-mono ml-2'> Game Development </h1>
                 <hr style={{ width: '95%', marginLeft: '10px'}}/>
