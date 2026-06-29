@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import { TaskBar, List, useModal, Modal, TitleBar } from '@react95/core';
+import { useEffect, useState } from 'react';
+import { TaskBar, List, useModal, Modal, TitleBar, Alert } from '@react95/core';
 import { ReaderClosed, WindowsExplorer, Earth, Computer, RecycleEmpty, Mdisp321, Wintrust103 } from '@react95/icons';
 
+import { useIsMobile } from '../hooks/useIsMobile';
 import Shortcut from './shortcut/shortcut';
 import WelcomeWindow from './welcomeWindow/welcomeWindow';
 import ExperienceWindow from './experienceWindow/experienceWindow';
@@ -17,6 +18,13 @@ import '@react95/icons/icons.css';
 
 export default function App() {
     {/* States */}
+    const isMobile = useIsMobile();
+    const [showRecycleAlert, setShowRecycleAlert] = useState(false);
+
+    // On phones the fixed-pixel window positions push modals off-screen, so
+    // anchor them near the top-left and let widths fill the viewport instead.
+    const mobilePosition = { x: 6, y: 6 };
+
     const {
         add,
         remove,
@@ -65,13 +73,14 @@ export default function App() {
                 id='Drag-zone'
                 className='dragZone-size z-0'
             >
-                <Shortcut 
+                <Shortcut
+                    id='recycle-bin'
                     icon={
                         <RecycleEmpty/>
                     }
                     label='Recycle Bin'
-                    defaultPosition={{ 
-                        x: 0, 
+                    defaultPosition={{
+                        x: 0,
                         y: 500
                     }}
                 />
@@ -84,6 +93,7 @@ export default function App() {
                         x: 0, 
                         y: 0
                     }}
+                    onRecycleAttempt={() => setShowRecycleAlert(true)}
                     onDoubleClick={() => {
                         addModal('welcome-window', 'Welcome!', <Earth />);
                     }}
@@ -97,6 +107,7 @@ export default function App() {
                         x: 0, 
                         y: 70
                     }}
+                    onRecycleAttempt={() => setShowRecycleAlert(true)}
                     onDoubleClick={() => {
                         addModal('experience-window', 'Experience', <Computer />);
                     }}
@@ -110,6 +121,7 @@ export default function App() {
                         x: 0,
                         y: 140
                     }}
+                    onRecycleAttempt={() => setShowRecycleAlert(true)}
                     onDoubleClick={() => {
                         addModal('education-window', 'Education', <Wintrust103 />);
                     }}
@@ -123,6 +135,7 @@ export default function App() {
                         x: 0,
                         y: 210
                     }}
+                    onRecycleAttempt={() => setShowRecycleAlert(true)}
                     onDoubleClick={() => {
                         addModal('projects-window', 'Projects', <Mdisp321 />);
                     }}
@@ -137,6 +150,7 @@ export default function App() {
                         y: 0
                     }}
                     externalLink={true}
+                    onRecycleAttempt={() => setShowRecycleAlert(true)}
                     onDoubleClick={() => {
                         window.open('https://github.com/Nfafshari', '_blank', 'noopener noreferrer');
                     }}
@@ -151,6 +165,7 @@ export default function App() {
                         y: 70
                     }}
                     externalLink={true}
+                    onRecycleAttempt={() => setShowRecycleAlert(true)}
                     onDoubleClick={() => {
                         window.open('https://www.linkedin.com/in/nathen-afshari', '_blank', 'noopener noreferrer');
                     }}
@@ -163,7 +178,8 @@ export default function App() {
                 icon={ <Earth /> }
                 title='Welcome!'
                 dragOptions={{
-                    defaultPosition: { x: 600, y: 100 }
+                    bounds: 'body',
+                    defaultPosition: isMobile ? mobilePosition : { x: 600, y: 100 }
                 }}
                 titleBarOptions={[
                     <Modal.Minimize key='minimize' 
@@ -178,7 +194,7 @@ export default function App() {
                     />
                 ]}
             >
-                <Modal.Content w="550px" h="500px" boxShadow="$in" className="!p-0">
+                <Modal.Content w={isMobile ? '82vw' : '550px'} h={isMobile ? '66vh' : '500px'} boxShadow="$in" className="!p-0">
                     <WelcomeWindow />
                 </Modal.Content>
             </Modal>
@@ -187,7 +203,8 @@ export default function App() {
                 icon={ <Computer /> }
                 title='Experience'
                 dragOptions={{
-                    defaultPosition: { x: 650, y: 150 }
+                    bounds: 'body',
+                    defaultPosition: isMobile ? mobilePosition : { x: 650, y: 150 }
                 }}
                 titleBarOptions={[
                     <Modal.Minimize key='minimize' 
@@ -202,7 +219,7 @@ export default function App() {
                     />
                 ]}
             >
-                <Modal.Content w="700px" h="500px" boxShadow="$in" className="!p-0">
+                <Modal.Content w={isMobile ? '82vw' : '700px'} h={isMobile ? '68vh' : '500px'} boxShadow="$in" className="!p-0 modal-fill">
                     <ExperienceWindow />
                 </Modal.Content>
             </Modal>
@@ -211,7 +228,8 @@ export default function App() {
                 icon={ <Wintrust103 /> }
                 title='Education'
                 dragOptions={{
-                    defaultPosition: { x: 140, y: 0 }
+                    bounds: 'body',
+                    defaultPosition: isMobile ? mobilePosition : { x: 140, y: 0 }
                 }}
                 titleBarOptions={[
                     <Modal.Minimize key='minimize' 
@@ -227,7 +245,7 @@ export default function App() {
                 ]}
                 
             >
-                <Modal.Content w="500px" h="300px" boxShadow="$in" className="!p-0">
+                <Modal.Content w={isMobile ? '82vw' : '520px'} h={isMobile ? '72vh' : '470px'} boxShadow="$in" className="!p-0">
                     <EducationWindow />
                 </Modal.Content>
             </Modal>
@@ -236,7 +254,8 @@ export default function App() {
                 icon={ <Mdisp321 /> }
                 title='Projects'
                 dragOptions={{
-                    defaultPosition: { x: 550, y: 100 }
+                    bounds: 'body',
+                    defaultPosition: isMobile ? mobilePosition : { x: 550, y: 100 }
                 }}
                 titleBarOptions={[
                     <Modal.Minimize key='minimize' 
@@ -252,10 +271,19 @@ export default function App() {
                 ]}
                 
             >
-                <Modal.Content w="600px" h="500px" boxShadow="$in" className="!p-0">
+                <Modal.Content w={isMobile ? '82vw' : '600px'} h={isMobile ? '68vh' : '500px'} boxShadow="$in" className="!p-0 modal-fill">
                     <ProjectsWindow />
                 </Modal.Content>
             </Modal>
+
+            {showRecycleAlert &&
+                <Alert
+                    title='Recycle Bin'
+                    type='warning'
+                    message='Ha! Nice try...'
+                    buttons={[{ value: 'OK', onClick: () => setShowRecycleAlert(false) }]}
+                />
+            }
 
             <TaskBar
                 className='taskBar-size'
