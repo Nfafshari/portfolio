@@ -53,20 +53,33 @@ export default function ProjectsWindow () {
                 <h1 className='font-mono ml-2'> Wedding Planner </h1>
                 <hr style={{ width: '95%', marginLeft: '10px'}}/>
                 <Frame h='382px' w='95%' bgColor='white' boxShadow='$in' className='mt-5 ml-2 p-2 overflow-y-scroll'>
-                    <h2 className='font-mono'> Full-Stack Web App </h2>
+                    <h2 className='font-mono'> Full-Stack Web App <span className='text-gray-500 text-xs'>[live]</span></h2>
                     <Fieldset legend='Skills' className='pl-2 pr-2 pb-2'>
                         <div className='flex flex-col'>
                             <Checkbox checked readOnly className='checkbox'> Next.js (App Router) </Checkbox>
                             <Checkbox checked readOnly className='checkbox'> TypeScript </Checkbox>
                             <Checkbox checked readOnly className='checkbox'> Prisma + PostgreSQL </Checkbox>
+                            <Checkbox checked readOnly className='checkbox'> Auth.js (Google OAuth) </Checkbox>
                             <Checkbox checked readOnly className='checkbox'> Tailwind + shadcn/ui </Checkbox>
                             <Checkbox checked readOnly className='checkbox'> Data Visualization (Recharts) </Checkbox>
                         </div>
                     </Fieldset>
 
-                    <p className='font-mono text-lg mt-2'> A full-stack wedding planning platform I designed and built for my fiancée and me. It turns the chaos of wedding planning into a single dashboard that tracks everything from guests to budget.</p>
-                    <p className='font-mono text-lg mt-2'> Core features include RSVP and guest-list management, a gift registry with claim tracking so gifts aren't double-purchased, a budget dashboard with interactive charts, and a categorized task checklist for staying on schedule.</p>
-                    <p className='font-mono text-lg mt-2'> Built with Next.js 16 and React 19 on the App Router, with a type-safe data layer using Prisma 7 and PostgreSQL. The UI is composed from Tailwind CSS and accessible shadcn/ui (Radix) components, with Recharts powering the budget visualizations behind a protected dashboard.</p>
+                    <p className='font-mono text-lg mt-2'> A full-stack wedding planning platform I designed and built for my fiancée and me, now deployed on Vercel. It turns the chaos of wedding planning into a single dashboard covering a categorized task checklist, a budget breakdown, RSVP and guest-list management, a gift registry with claim tracking so gifts aren't double-purchased, and a document archive for vendor quotes and contracts.</p>
+                    <p className='font-mono text-lg mt-2'> Built with Next.js 16 and React 19 on the App Router, with a type-safe data layer using Prisma 7 and PostgreSQL. Every page follows the same shape: a Server Component fetches the data, passes typed props to a Client Component, and writes go through Server Actions colocated with the page.</p>
+                    <p className='font-mono text-lg mt-2'> <span className='font-bold'>What I learned:</span> the biggest lesson was that authorization has to be enforced at every layer, not just one. Middleware alone isn't enough — because sessions are JWTs, a token stays valid after someone is removed from the allow list, so the session guard is re-checked in Server Components and again inside every Server Action. Server Actions also can't use redirects to bounce an unauthorized user, since a thrown redirect surfaces to the client as a generic error, so they return a typed failure result instead.</p>
+                    <p className='font-mono text-lg mt-2'> That same result type became the contract for every mutation in the app: validate on the server, translate Prisma error codes into a specific message pointing at the offending field, and revalidate the affected route on success. Standardizing that early made error handling consistent instead of something I reinvented on each form.</p>
+                    <p className='font-mono text-lg mt-2'> I also hit a real problem in shipping a private app publicly: I wanted to demo it without exposing our actual wedding data. I solved it by building a signed-out sandbox that mirrors the planner but swaps the database for an in-memory store injected into the actions, so the demo structurally cannot reach the database. Along the way I learned to keep filter state in URL search params so views survive a refresh and stay linkable, and to treat schema mistakes as normal — the budget and RSVP models were both redesigned through migrations once real use exposed the wrong shape.</p>
+                    <p className='font-mono text-lg mt-2'>
+                        <a href='https://piperandnathen2027.vercel.app' target='_blank' rel='noopener noreferrer'>
+                            <span className='text-blue-700 underline'>Visit the live site →</span>
+                        </a>
+                    </p>
+                    <p className='font-mono text-lg mt-2'>
+                        <a href='https://piperandnathen2027.vercel.app/single-instance-planner' target='_blank' rel='noopener noreferrer'>
+                            <span className='text-blue-700 underline'>Try the interactive demo planner →</span>
+                        </a>
+                    </p>
                     <p className='font-mono text-lg mt-2'>
                         <a href='https://github.com/Nfafshari/afshari_wedding_site' target='_blank' rel='noopener noreferrer'>
                             <span className='text-blue-700 underline'>View source on GitHub →</span>
