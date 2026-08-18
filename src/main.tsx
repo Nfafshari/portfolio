@@ -1,11 +1,10 @@
-import { createRoot } from 'react-dom/client'
-import { ClippyProvider } from '@react95/clippy'
-import App from './components/App.tsx'
-import './global.css'
+import { createRoot } from 'react-dom/client';
+import App from './app.tsx';
+import './global.css';
 
 
 createRoot(document.getElementById('root')!).render(
-    <ClippyProvider>
-        <App />
-    </ClippyProvider>
-)
+  <div className='flex flex-col w-full min-h-screen'>
+    <App />
+  </div>
+);

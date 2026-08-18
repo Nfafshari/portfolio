@@ -1,107 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-    --crt-red: rgb(218, 49, 49);
-    --crt-green: rgb(112, 159, 115);
-    --crt-blue: rgb(40, 129, 206);
+    --background: #09090A;
+    --foreground: #F3F4F6;
+    --primary: #729B8E;
+    --accent: #D47E53;
+    --border: #222226;
+    --glow: #0e0500;
 }
 
-h1 {
-    font-size: xx-large;
-}
+@theme {
+    --color-background: #09090A;
+    --color-foreground: #F3F4F6;
+    --color-primary: #729B8E;
+    --color-accent: #D47E53;
+    --color-border: #222226;
+    --color-glow: #0e0500;
 
-span {
-    font-size: 18px;
-    font-family: monospace;
-}
-
-.taskBar-size {
-    height: 40px !important;
-    z-index: 20;
-}
-
-.taskBar-size button {
-    display: flex !important;
-    align-items: center !important;
-    font-size: 16px !important;
-    text-align: start !important;
-}
-
-.taskBar-size button:first-child div:first-child {
-    display: flex !important;
-    align-items: center !important;
-    font-size: 16px !important;
-    text-align: start !important;
-    padding-bottom: 5px !important;
-}
-
-.taskBar-size button div:last-child {
-    padding-top: 4px !important;
-}
-
-.taskBar-size div:last-child {
-    font-size: large;
-    text-align: center;
-    margin-right: 2px; 
-}
-
-.taskBar-size div:last-child div {
-    margin-right: 0px;
-    margin-top: 3px;
-}
-
-.dragZone-size {
-    width: 100%; 
-    height: 95.5%; 
-    margin-bottom: 40px;
-}
-
-.checkbox {
-    /* react95 locks the checkbox label to a fixed 15px height. With our larger
-       font a wrapped (multi-line) label overflows that box and overlaps the next
-       item, so let the label grow to fit its content instead. */
-    height: auto !important;
-    line-height: 1.3 !important;
-}
-
-.checkbox span {
-    font-size: large;
-    margin-bottom: 10px !important;
-}
-
-/* Make tabbed windows (Experience, Projects) fill the full window height.
-   react95's Tabs renders a tab strip <ol> plus a content <div> that otherwise
-   only take their natural height, leaving dead space below the panel. We turn
-   the modal into a flex column so the content panel — and the scrollable Frame
-   inside the active tab — stretch to fill whatever height the window has. */
-.modal-fill {
-    display: flex !important;
-    flex-direction: column;
-}
-
-.modal-fill > ol {
-    flex-shrink: 0;
-}
-
-.modal-fill > div {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-fill > div > :last-child {
-    flex: 1 1 auto;
-    height: auto !important;
-    min-height: 0;
-}
-
-/* ---------- Mobile ---------- */
-@media (max-width: 768px) {
-    /* Keep window content from spilling past the screen edges. */
-    h1 {
-        font-size: x-large;
-    }
+    --font-instrument: "Instrument Serif", ui-serif, Georgia, serif;
+    --font-geist: Geist;
 }
