@@ -24,21 +24,20 @@ export default function Hero() {
         </p>
       </div>
 
-      <h2 className="font-instrument leading-[0.95] tracking-wide text-foreground bg-radial from-accent/8 to-60% text-[clamp(2.25rem,8.5vw,7rem)]">
-        <span className="block">
-          I TURN <span className="text-primary">IDEAS</span>
-        </span>
-        <span className="flex flex-wrap items-center gap-x-[0.25em]">
-          INTO
-          <img
-            src={asset("lava.png")}
-            alt=""
-            aria-hidden="true"
-            className="inline-block h-[0.62em] w-[1.5em] rounded-full object-cover"
-          />
-          <span className="text-accent">REAL</span> SOFTWARE
-        </span>
-      </h2>
+      <div className="flex w-full h-full justify-center items-center bg-radial from-accent/10 to-60%">
+        <h2 className="font-instrument leading-[0.95] tracking-wide text-foreground text-[clamp(5.5rem,8.5vw,9rem)]">
+          <span className="flex flex-wrap flex-col items-center gap-y-[0.25em] gap-x-[0.25em] md:flex-row">
+            <span className="text-foreground">NATHEN</span>
+            <img
+              src={asset("lava.png")}
+              alt=""
+              aria-hidden="true"
+              className="inline-block h-[0.62em] w-[1.5em] rounded-full object-cover"
+            />
+            <span className="text-accent">AFSHARI</span>
+          </span>
+        </h2>
+      </div>
 
       <div className="flex flex-col gap-6 justify-between md:flex-row md:items-end md:gap-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:gap-12">
