@@ -1,71 +1,88 @@
+import type { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const asset = (file: string) => `${import.meta.env.BASE_URL}${file}`;
 
+/**
+ * Fills the glyphs with the looping waves gif. Two background layers are
+ * stacked -- a flat sheet of `tint` over the gif -- and blended with `color`,
+ * which keeps the gif's luminosity (so the waves still move) while taking hue
+ * and saturation from the tint.
+ */
+function WaveText({ tint, children }: { tint: string; children: ReactNode; }) {
+  return (
+    <span
+      className="font-bold bg-clip-text bg-center bg-cover text-transparent bg-foreground/35"
+      style={{
+        backgroundImage: `url(${asset("orange_waves.gif")})`,
+        backgroundBlendMode: "color",
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
 export default function Hero() {
   return (
     <div
-      className="flex flex-col justify-between w-full h-[calc(100dvh-5rem)] bg-cover bg-center px-6 py-8 border-b border-border md:h-[calc(100dvh-6.25rem)] md:px-12 md:py-10"
+      className="flex flex-col justify-between w-full h-[calc(100dvh-5rem)] bg-cover bg-center border-b border-accent/20 md:h-[calc(100dvh-6.25rem)]"
       style={{ backgroundImage: `url(${asset("hero-section.png")})` }}
     >
-      <div className="flex flex-col gap-6 justify-between md:flex-row md:gap-10">
-        <div className="flex flex-col gap-2 items-start">
-          <span className="rounded-full border border-primary/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-primary">
-            Nathen Afshari - Portfolio '26
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/50">
-            Est. 2026 / University of North Dakota
-          </span>
-        </div>
-        <p className="max-w-sm text-sm leading-relaxed text-foreground/70 md:text-right">
-          Software engineer at UND's Computational Research Center, growing
-          into full-stack. I build the interface, then follow it back through
-          the APIs and auth that make it work.
-        </p>
-      </div>
-
-      <div className="flex w-full h-full justify-center items-center bg-radial from-accent/10 to-60%">
-        <h2 className="font-instrument leading-[0.95] tracking-wide text-foreground text-[clamp(5.5rem,8.5vw,9rem)]">
-          <span className="flex flex-wrap flex-col items-center gap-y-[0.25em] gap-x-[0.25em] md:flex-row">
-            <span className="text-foreground">NATHEN</span>
-            <img
-              src={asset("lava.png")}
-              alt=""
-              aria-hidden="true"
-              className="inline-block h-[0.62em] w-[1.5em] rounded-full object-cover"
-            />
-            <span className="text-accent">AFSHARI</span>
-          </span>
-        </h2>
-      </div>
-
-      <div className="flex flex-col gap-6 justify-between md:flex-row md:items-end md:gap-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:gap-12">
-          <div className="flex flex-col gap-1">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
-              My Stack
+      <div className="flex flex-col justify-between w-full h-full bg-black/80 px-6 py-8 md:px-12 md:py-10">
+        <div className="flex flex-col gap-6 justify-between md:flex-row md:gap-10">
+          <div className="flex flex-col gap-2 items-start">
+            <span className="rounded-full border border-primary/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-primary">
+              Nathen Afshari - Portfolio '26
             </span>
-            <span className="text-sm text-foreground/80">
-              React · TypeScript · Next.js · Node.js · PostgreSQL
+            <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/50">
+              Est. 2026 / University of North Dakota
             </span>
           </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
-              Open To
-            </span>
-            <span className="text-sm text-foreground/80">
-              Frontend & Full-Stack Engineer roles · Available now
-            </span>
-          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-foreground/70 md:text-right">
+            Software engineer at UND's Computational Research Center, growing
+            into full-stack. I build the interface, then follow it back through
+            the APIs and auth that make it work.
+          </p>
         </div>
 
-        <a
-          href="#projects"
-          className="flex shrink-0 gap-2 items-center self-start bg-primary px-5 py-3 text-sm uppercase tracking-[0.15em] text-background rounded-xs hover:opacity-90 md:self-auto"
-        >
-          Explore My Work
-          <ArrowUpRight className="w-4 h-4" strokeWidth={1.75} />
-        </a>
+        <div className="flex w-full h-full justify-center items-center bg-radial from-accent/10 to-60%">
+          <h2 className="font-instrument leading-[0.95] tracking-wide text-foreground text-[clamp(5.5rem,8.5vw,9rem)]">
+            <span className="flex flex-wrap flex-col items-center gap-y-[0.25em] gap-x-[0.25em] md:flex-row">
+              <WaveText tint="var(--foreground)">NATHEN</WaveText>
+              <WaveText tint="var(--accent)">AFSHARI</WaveText>
+            </span>
+          </h2>
+        </div>
+
+        <div className="flex flex-col gap-6 justify-between md:flex-row md:items-end md:gap-10">
+          <div className="flex flex-col gap-6 sm:flex-row sm:gap-12">
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
+                My Stack
+              </span>
+              <span className="text-sm text-foreground/80">
+                React · TypeScript · Next.js · Node.js · PostgreSQL
+              </span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
+                Open To
+              </span>
+              <span className="text-sm text-foreground/80">
+                Frontend & Full-Stack Engineer roles · Available now
+              </span>
+            </div>
+          </div>
+
+          <a
+            href="#projects"
+            className="flex shrink-0 gap-2 items-center self-start bg-primary px-5 py-3 text-sm uppercase tracking-[0.15em] text-background rounded-xs hover:opacity-90 md:self-auto"
+          >
+            Explore My Work
+            <ArrowUpRight className="w-4 h-4" strokeWidth={1.75} />
+          </a>
+        </div>
       </div>
     </div>
   );

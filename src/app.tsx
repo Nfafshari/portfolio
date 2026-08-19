@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/header";
 import Hero from "./components/hero";
 import IdBadge from "./components/id-badge";
+import ExperienceSection from "./components/experience-section";
 
 export default function App() {
   const [badgeOpen, setBadgeOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function App() {
         onToggleBadge={() => setBadgeOpen((v) => !v)}
       />
       <Hero />
-      <div className="flex w-full h-110 bg-radial from-glow to-background"></div>
+      <ExperienceSection />
       <IdBadge open={badgeOpen} />
     </div>
   );

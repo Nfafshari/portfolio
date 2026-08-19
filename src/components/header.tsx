@@ -9,7 +9,7 @@ interface HeaderProps {
 export default function Header({ badgeOpen, onToggleBadge }: HeaderProps) {
 
   return (
-    <div className="flex sticky top-0 w-full h-20 items-center justify-between gap-5 whitespace-nowrap bg-radial from-glow from-70% to-background px-10 border-b border-border md:h-25">
+    <div className="flex sticky top-0 w-full h-20 items-center justify-between gap-5 whitespace-nowrap bg-radial from-glow from-30% to-background px-10 border-b border-border md:h-25">
       <div className="flex w-1/7 items-center shrink-0 font-instrument text-3xl text-foreground text-start tracking-wide">
         {/* Nathen <span className="text-primary ml-0.75">Afshari</span> */}
         <button
@@ -30,11 +30,11 @@ export default function Header({ badgeOpen, onToggleBadge }: HeaderProps) {
         <NavLink href="#">
           Experience
         </NavLink>
-        <NavLink href="#">
-          Education
-        </NavLink>
         <NavLink href="">
           Projects
+        </NavLink>
+        <NavLink href="#">
+          Education
         </NavLink>
         <NavLink href="#">
           About Me

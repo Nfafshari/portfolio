@@ -7,16 +7,17 @@
     --accent: #D47E53;
     --border: #222226;
     --glow: #0e0500;
+    --glow-inverse: #301202;
 }
 
 @theme {
     --color-background: #09090A;
     --color-foreground: #F3F4F6;
-    --color-primary: #729B8E;
+    --color-primary: #D47E53;
     --color-accent: #D47E53;
     --color-border: #222226;
     --color-glow: #0e0500;
+    --color-glow-inverse: #301202;
 
     --font-instrument: "Instrument Serif", ui-serif, Georgia, serif;
-    --font-geist: Geist;
 }
